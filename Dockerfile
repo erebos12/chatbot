@@ -1,8 +1,4 @@
-FROM java:8
-
-# Install maven
-RUN apt-get update
-RUN apt-get install -y maven
+FROM maven:3.6.1-jdk-11-slim
 
 WORKDIR /code
 
@@ -19,4 +15,4 @@ RUN ["mvn", "package"]
 
 
 EXPOSE 8080
-CMD ["/usr/lib/jvm/java-8-openjdk-amd64/bin/java", "-jar", "/code/target/ChatBot-1.0-SNAPSHOT.jar"]
+CMD ["/bin/bash", "-c", "java -jar /code/target/ChatBot-1.0-SNAPSHOT.jar"]
