@@ -25,22 +25,17 @@ public class ChatBotMockMVCTest {
     @InjectMocks
     static PostQuestionController postQuestionController;
 
-
     @BeforeEach
     void initialiseRestAssuredStandaloneSetup() {
-
         RestAssuredMockMvc.standaloneSetup(getHelloController, postQuestionController);
     }
 
     @Test
     public void getHelloTest() {
-
-        given()
-
-                    .get("/")
-                    .then()
+        given().get("/")
+                .then()
                 .body(is(equalTo("Hello I'm alive")))
-                    .statusCode(OK.value());
+                .statusCode(OK.value());
     }
 
     @Test
@@ -48,12 +43,11 @@ public class ChatBotMockMVCTest {
         String message = "My name is Mr. Test";
         String expected = "Nice to meet you, Mr Test.";
 
-        given()
-                    .body(message)
-                    .post("/")
+        given().body(message)
+                .post("/")
                 .then()
-                    .body(is(equalTo(expected)))
-                    .statusCode(OK.value());
+                .body(is(equalTo(expected)))
+                .statusCode(OK.value());
     }
 
     @Test
@@ -61,18 +55,12 @@ public class ChatBotMockMVCTest {
         String message = "hello bot";
         String expected = "Hello human.";
 
-        given()
-                .body(message)
+        given().body(message)
                 .post("/")
                 .then()
                 .body(is(equalTo(expected)))
                 .statusCode(OK.value());
     }
-
-
-
-
-
 }
 
 
