@@ -1,4 +1,4 @@
-FROM maven:3.6.1-jdk-11-slim
+FROM maven:3-jdk-13
 
 WORKDIR /code
 
