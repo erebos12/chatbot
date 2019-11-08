@@ -10,4 +10,9 @@ public class GetHelloController {
     public String getHello() {
         return "Hello I'm alive";
     }
+
+    @GetMapping("/test")
+    public String getTest() {
+        return "Test endpoint";
+    }
 }
