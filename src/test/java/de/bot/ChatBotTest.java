@@ -2,6 +2,10 @@ package de.bot;
 
 import org.junit.jupiter.api.Test;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -46,6 +50,13 @@ public class ChatBotTest {
     @Test void myNameIs() {
         String reply = cb.getReply("Hello, my name is Alex");
         assertThat(reply, is("Nice to meet you, Alex."));
+    }
+
+    @Test void whatDateIsIt() {
+        String reply = cb.getReply("What date is it?");
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        String dateFormatted = df.format(new Date());
+        assertThat(reply, is("Today is " + dateFormatted));
     }
 
 }

@@ -18,6 +18,9 @@
 + [*] help [*]
 - With what exactly can I help you?
 
++ what date is it
+- Today is <call>botDateHandler <star></call>
+
 + *
 - I don't have a reply for that.
 - Try asking that a different way.
