@@ -2,21 +2,13 @@ package de.bot;
 
 import com.rivescript.Config;
 import com.rivescript.RiveScript;
-import org.springframework.core.io.ClassPathResource;
+import de.bot.subroutines.BotDateHandler;
+import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collections;
 
+@Component
 public class ChatBot {
 
     private RiveScript bot;
@@ -29,13 +21,13 @@ public class ChatBot {
             e.printStackTrace();
         }
 
+        bot.setSubroutine("botDateHandler", new BotDateHandler());
         bot.sortReplies();
     }
 
     private String getRivescriptDir() throws FileNotFoundException {
         return ResourceUtils.getFile("rivescript").getPath();
     }
-
 
     public String getReply(String msg) {
         return bot.reply("user", msg);
