@@ -10,7 +10,7 @@
 
     <properties>
         <maven.compiler.release>13</maven.compiler.release>
-        <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
+        <spring.boot.version>2.3.0.RELEASE</spring.boot.version>
     </properties>
 
     <parent>
